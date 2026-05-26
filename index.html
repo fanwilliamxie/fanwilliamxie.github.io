@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fan Xie — Academic</title>
+  <title>Fan (William) Xie — Academic</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -500,7 +500,7 @@
 <body>
 
   <nav>
-    <a class="nav-name" href="#about">Fan Xie</a>
+    <a class="nav-name" href="#about">Fan (William) Xie</a>
     <ul class="nav-links">
       <li><a href="#publications">Research</a></li>
       <li><a href="#awards">Awards</a></li>
@@ -509,76 +509,38 @@
   </nav>
 
   <!-- ABOUT -->
-  <section id="about">
-    <div class="container" style="display:contents">
-      <div class="about-text">
-        <h1>Fan Xie</h1>
-        <p class="role">PhD Student · UBC · Department of Civil Engineering</p>
-        <p>
-          I am a Ph.D. student in the Smart Structures Group at UBC. My research focuses on AI-enabled digital twins, photogrammetry-based reconstruction, semantic infrastructure modeling, and automated scan-to-analysis workflows for structural engineering applications.
-        </p>
-        <div class="about-links">
-          <button onclick="toggleEmailPopup(event)" class="email-btn">Email</button>
-          <div id="email-popup">
-            <span>f.xie@ubc.ca</span>
-            <button onclick="copyEmail()" id="copy-btn">Copy</button>
+  <section id="about" style="padding-top:6rem;padding-bottom:5rem;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 180px;gap:3rem;align-items:start;">
+        <div class="about-text">
+          <h1>About Me</h1>
+          <p style="margin-bottom:1rem;">
+            Hello, my name is Fan (William) Xie. I am a Ph.D. student in the <a href="https://smartstructures.civil.ubc.ca/" target="_blank" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">Smart Structures Group</a> at UBC. My academic background spans both engineering and architecture. I received my B.Eng in Civil Engineering from McMaster University in 2018, followed by a Master of Architecture from the University of Toronto. My interdisciplinary background in engineering and architecture shaped my interest in digital modeling, simulation, and the integration of physical and virtual built environments.
+          </p>
+          <p>
+            My current research focuses on AI-enabled digital twins, vision-based 3D reconstruction, and scan-to-analysis methods for structural and earthquake engineering. I am particularly interested in combining computer vision, photogrammetry, BIM, and AI techniques to support automated structural assessment and intelligent infrastructure analysis. The following sections highlight some of my recent research and development work.
+          </p>
+          <div class="about-links">
+            <button onclick="toggleEmailPopup(event)" class="email-btn">Email</button>
+            <div id="email-popup">
+              <span>f.xie@ubc.ca</span>
+              <button onclick="copyEmail()" id="copy-btn">Copy</button>
+            </div>
+    <a href="https://scholar.google.ca/citations?user=YxTftBUAAAAJ&hl=en" target="_blank">Google Scholar</a>
           </div>
-          <a href="cv.pdf" target="_blank">CV</a>
-          <a href="https://scholar.google.ca/citations?user=YxTftBUAAAAJ&hl=en" target="_blank">Google Scholar</a>
         </div>
-      </div>
-      <div class="avatar">
-        <!-- Replace with: <img src="photo.jpg" alt="Fan Xie" /> -->
-        FX
+        <div class="avatar">
+          <!-- Replace with: <img src="photo.jpg" alt="Fan Xie" /> -->
+          FX
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PUBLICATIONS & PROJECTS -->
+  <!-- PROJECTS -->
   <section id="publications">
     <div class="container">
-      <p class="section-label">Publications &amp; Projects</p>
-      <div class="pub-list">
-
-        <div class="pub-item">
-          <p class="pub-title">Your Paper Title: A Subtitle That Explains the Contribution</p>
-          <p class="pub-authors"><strong>Your Name</strong>, Co-author One, Co-author Two</p>
-          <p class="pub-venue">Conference on [Field], 2024</p>
-          <div class="pub-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Machine Learning</span>
-            <a class="tag link" href="#" target="_blank">[PDF]</a>
-            <a class="tag link" href="#" target="_blank">[Code]</a>
-            <a class="tag link" href="#" target="_blank">[Project]</a>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">Another Paper or Preprint Title Goes Here</p>
-          <p class="pub-authors"><strong>Your Name</strong>, Collaborator Name</p>
-          <p class="pub-venue">arXiv preprint, 2024</p>
-          <div class="pub-tags">
-            <span class="tag">HCI</span>
-            <span class="tag">User Study</span>
-            <a class="tag link" href="#" target="_blank">[PDF]</a>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <p class="pub-title">Workshop or Demo Paper at a Top Venue</p>
-          <p class="pub-authors"><strong>Your Name</strong>, Advisor Name</p>
-          <p class="pub-venue">Workshop at [Venue], 2023</p>
-          <div class="pub-tags">
-            <span class="tag">Vision</span>
-            <a class="tag link" href="#" target="_blank">[PDF]</a>
-            <a class="tag link" href="#" target="_blank">[Poster]</a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- PROJECTS -->
-      <p class="section-label" style="margin-top: 3.5rem;">Projects</p>
+      <p class="section-label">Projects</p>
 
       <!-- PROJECT 1 -->
       <div class="proj-feature">
@@ -603,6 +565,29 @@
           From top-left: field specimen · connection detail · FEM analysis · structural model · photogrammetry scan pipeline (bottom)
         </p>
       </div>
+
+      <!-- PROJECT 2 -->
+      <div class="proj-feature" style="margin-top:1.5rem;">
+        <div class="proj-feature-header">
+          <div>
+            <h3 class="proj-feature-title">Vibration Damper Optimization for Cantilever Traffic Poles</h3>
+            <span class="proj-year" style="display:inline-block;margin-top:0.3rem;">2024 · Structural Dynamics · FEM · Computer Vision</span>
+          </div>
+          <span class="tag" style="white-space:nowrap;align-self:flex-start;opacity:0.6;">Under Review</span>
+        </div>
+        <p class="proj-feature-desc">
+          This project investigated the dynamic vibration behavior of cantilever traffic and light poles subjected to free vibration. Experimental testing and finite element analysis were conducted to evaluate the effectiveness of vibration-mitigating dampers across different mass and stiffness combinations. Computer vision tracking was used to capture pole tip oscillations, and calibrated FE models enabled extensive parametric studies on damper performance. The study identified optimized damper configurations that significantly reduced vibration amplitudes for different pole types.
+        </p>
+        <div class="proj-photo-grid">
+          <img src="proj2_lab1.png" alt="Cantilever pole lab setup" class="proj-photo" />
+          <img src="proj2_lab2.png" alt="Pole with damper assembly" class="proj-photo" />
+          <img src="proj2_graph1.png" alt="Damped free vibration response" class="proj-photo" />
+          <img src="proj2_graph2.png" alt="Undamped vibration response" class="proj-photo" />
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:0.6rem;font-style:italic;">
+          From top-left: lab test setup · damper assembly · damped free vibration response · undamped response comparison
+        </p>
+      </div>
     </div>
   </section>
 
@@ -613,34 +598,44 @@
       <div class="award-list">
 
         <div class="award-item">
+          <span class="award-year">2025</span>
+          <div class="award-body">
+            <h4>UBC Four Year Doctoral Fellowship</h4>
+          </div>
+        </div>
+
+        <div class="award-item">
           <span class="award-year">2024</span>
           <div class="award-body">
-            <h4>Fellowship or Scholarship Name</h4>
-            <p>Awarding organization — brief note about what it recognizes.</p>
+            <h4>President's Academic Excellence Initiative PhD Award</h4>
           </div>
         </div>
 
         <div class="award-item">
-          <span class="award-year">2023</span>
+          <span class="award-year">2024</span>
           <div class="award-body">
-            <h4>Best Paper Award</h4>
-            <p>Conference on [Field] — awarded to top 1% of accepted papers.</p>
-          </div>
-        </div>
-
-        <div class="award-item">
-          <span class="award-year">2023</span>
-          <div class="award-body">
-            <h4>Graduate Research Grant</h4>
-            <p>Department of [Name], [University] — competitive internal research funding.</p>
+            <h4>Faculty of Applied Science Graduate Award</h4>
           </div>
         </div>
 
         <div class="award-item">
           <span class="award-year">2022</span>
           <div class="award-body">
-            <h4>Undergraduate Thesis Prize</h4>
-            <p>Faculty of [Name], [University] — for outstanding undergraduate research.</p>
+            <h4>IC-Impacts Research Award</h4>
+          </div>
+        </div>
+
+        <div class="award-item">
+          <span class="award-year">2018</span>
+          <div class="award-body">
+            <h4>University of Toronto Fellowship</h4>
+          </div>
+        </div>
+
+        <div class="award-item">
+          <span class="award-year">2014</span>
+          <div class="award-body">
+            <h4>The McMaster Honour Award</h4>
           </div>
         </div>
 
