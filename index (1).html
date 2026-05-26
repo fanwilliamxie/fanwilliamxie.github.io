@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Academic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --border: #e8e4dc;
+      --text: #1a1916;
+      --muted: #6b6860;
+      --accent: #3b5a8a;
+      --accent-light: #eef2f8;
+      --tag-bg: #f0ede8;
+      --tag-text: #4a4740;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14130f;
+        --surface: #1e1d19;
+        --border: #2e2c27;
+        --text: #f0ede6;
+        --muted: #928f88;
+        --accent: #7fa3d1;
+        --accent-light: #1a2333;
+        --tag-bg: #252320;
+        --tag-text: #b5b0a8;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* LAYOUT */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    /* HERO */
+    #about {
+      padding-top: 6rem;
+      padding-bottom: 5rem;
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .about-text .role {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .about-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .about-links a:hover {
+      background: var(--accent);
+      color: var(--surface);
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'EB Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--muted);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SECTION HEADINGS */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; gap: 2rem; }
+
+    .pub-item {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .tag.link {
+      background: var(--accent-light);
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .tag.link:hover { opacity: 0.8; }
+
+    /* PROJECTS */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+      display: block;
+    }
+
+    .project-card:hover { border-color: var(--accent); }
+
+    .project-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .project-card p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-card .proj-year {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* AWARDS */
+    .award-list { display: flex; flex-direction: column; gap: 0; }
+
+    .award-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .award-item:last-child { border-bottom: none; }
+
+    .award-year {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      padding-top: 2px;
+    }
+
+    .award-body h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+
+    .award-body p {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    /* DESIGN */
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .design-item {
+      aspect-ratio: 4/3;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .design-item:hover { border-color: var(--accent); }
+
+    .design-item svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .design-item span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 400;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 620px) {
+      #about { grid-template-columns: 1fr; }
+      .avatar { width: 100px; height: 100px; order: -1; }
+      .about-text h1 { font-size: 2rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .design-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1.2rem; }
+      .container { padding: 0 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="#about">Your Name</a>
+    <ul class="nav-links">
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#design">Design</a></li>
+    </ul>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container" style="display:contents">
+      <div class="about-text">
+        <h1>Your Name</h1>
+        <p class="role">PhD Student · University Name · Department</p>
+        <p>
+          I am a doctoral researcher at [University], advised by [Advisor Name].
+          My work sits at the intersection of [Field A] and [Field B], with a focus
+          on [specific topic or question you care about].
+        </p>
+        <p>
+          Before my PhD, I studied [degree] at [institution]. I also spend time on
+          design, side projects, and making research more accessible.
+        </p>
+        <div class="about-links">
+          <a href="mailto:you@university.edu">Email</a>
+          <a href="cv.pdf" target="_blank">CV</a>
+          <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+          <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+          <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+        </div>
+      </div>
+      <div class="avatar">
+        <!-- Replace with: <img src="photo.jpg" alt="Your Name" /> -->
+        YN
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS & PROJECTS -->
+  <section id="publications">
+    <div class="container">
+      <p class="section-label">Publications &amp; Projects</p>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <p class="pub-title">Your Paper Title: A Subtitle That Explains the Contribution</p>
+          <p class="pub-authors"><strong>Your Name</strong>, Co-author One, Co-author Two</p>
+          <p class="pub-venue">Conference on [Field], 2024</p>
+          <div class="pub-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">Machine Learning</span>
+            <a class="tag link" href="#" target="_blank">[PDF]</a>
+            <a class="tag link" href="#" target="_blank">[Code]</a>
+            <a class="tag link" href="#" target="_blank">[Project]</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <p class="pub-title">Another Paper or Preprint Title Goes Here</p>
+          <p class="pub-authors"><strong>Your Name</strong>, Collaborator Name</p>
+          <p class="pub-venue">arXiv preprint, 2024</p>
+          <div class="pub-tags">
+            <span class="tag">HCI</span>
+            <span class="tag">User Study</span>
+            <a class="tag link" href="#" target="_blank">[PDF]</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <p class="pub-title">Workshop or Demo Paper at a Top Venue</p>
+          <p class="pub-authors"><strong>Your Name</strong>, Advisor Name</p>
+          <p class="pub-venue">Workshop at [Venue], 2023</p>
+          <div class="pub-tags">
+            <span class="tag">Vision</span>
+            <a class="tag link" href="#" target="_blank">[PDF]</a>
+            <a class="tag link" href="#" target="_blank">[Poster]</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECTS -->
+      <p class="section-label" style="margin-top: 3.5rem;">Side Projects</p>
+      <div class="project-grid">
+
+        <a class="project-card" href="#" target="_blank">
+          <h3>Project Alpha</h3>
+          <p>A short description of what this project does and why it matters. Two or three sentences is enough.</p>
+          <span class="proj-year">2024 · Python, PyTorch</span>
+        </a>
+
+        <a class="project-card" href="#" target="_blank">
+          <h3>Project Beta</h3>
+          <p>Another project — a tool, open-source library, or experiment you built. Link to GitHub or a demo.</p>
+          <span class="proj-year">2023 · React, D3</span>
+        </a>
+
+        <a class="project-card" href="#" target="_blank">
+          <h3>Project Gamma</h3>
+          <p>A third project. Could be research infrastructure, a dataset, or a creative coding experiment.</p>
+          <span class="proj-year">2023 · Rust</span>
+        </a>
+
+        <a class="project-card" href="#" target="_blank">
+          <h3>Project Delta</h3>
+          <p>One more. Keep descriptions brief — the card is a teaser, the link gives full context.</p>
+          <span class="proj-year">2022 · JavaScript</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="container">
+      <p class="section-label">Awards &amp; Honors</p>
+      <div class="award-list">
+
+        <div class="award-item">
+          <span class="award-year">2024</span>
+          <div class="award-body">
+            <h4>Fellowship or Scholarship Name</h4>
+            <p>Awarding organization — brief note about what it recognizes.</p>
+          </div>
+        </div>
+
+        <div class="award-item">
+          <span class="award-year">2023</span>
+          <div class="award-body">
+            <h4>Best Paper Award</h4>
+            <p>Conference on [Field] — awarded to top 1% of accepted papers.</p>
+          </div>
+        </div>
+
+        <div class="award-item">
+          <span class="award-year">2023</span>
+          <div class="award-body">
+            <h4>Graduate Research Grant</h4>
+            <p>Department of [Name], [University] — competitive internal research funding.</p>
+          </div>
+        </div>
+
+        <div class="award-item">
+          <span class="award-year">2022</span>
+          <div class="award-body">
+            <h4>Undergraduate Thesis Prize</h4>
+            <p>Faculty of [Name], [University] — for outstanding undergraduate research.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER DESIGN WORK -->
+  <section id="design">
+    <div class="container">
+      <p class="section-label">Other Design Work</p>
+      <div class="design-grid">
+
+        <a class="design-item" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 21h10M12 17v4"/></svg>
+          <span>Data Visualization</span>
+        </a>
+
+        <a class="design-item" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c0 0-4 4-4 9s4 9 4 9"/><path d="M3 12h18"/></svg>
+          <span>Web Design</span>
+        </a>
+
+        <a class="design-item" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <span>Typography / Layout</span>
+        </a>
+
+        <a class="design-item" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          <span>Poster Design</span>
+        </a>
+
+        <a class="design-item" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Science Communication</span>
+        </a>
+
+        <a class="design-item" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Writing</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 Your Name · Built with plain HTML · Hosted on GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
