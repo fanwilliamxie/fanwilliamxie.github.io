@@ -457,30 +457,30 @@
 
     .proj-photo-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 0.5rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0.6rem;
     }
 
     .proj-photo {
       width: 100%;
-      height: 160px;
-      object-fit: cover;
+      height: 200px;
+      object-fit: contain;
       border-radius: 3px;
       border: 1px solid var(--border);
       background: var(--tag-bg);
     }
 
     .proj-photo-wide {
-      grid-column: 1;
-      grid-row: 1 / 3;
-      height: 100%;
-      min-height: 200px;
+      grid-column: 1 / 3;
+      height: 320px;
+      object-fit: contain;
     }
 
     @media (max-width: 620px) {
-      .proj-photo-grid { grid-template-columns: 1fr 1fr; }
-      .proj-photo-wide { grid-column: 1 / 3; grid-row: 1; height: 180px; }
+      .proj-photo-grid { grid-template-columns: 1fr; }
+      .proj-photo-wide { grid-column: 1; height: 220px; }
+      .proj-photo { height: 160px; }
       .proj-feature-header { flex-direction: column; }
     }
 
@@ -593,14 +593,14 @@
           A collaboration between the Smart Structures Group and Indigenous artists to stack five 20-foot timber logs into a 100-foot sculpture. The team developed a scan-to-model pipeline to build a digital twin of the structure and conduct response spectrum analysis. State-of-the-art connection design was used between segments, showcasing the fusion of Indigenous art and modern structural engineering.
         </p>
         <div class="proj-photo-grid">
-          <img src="proj1_field.png" alt="Field photo of timber log" class="proj-photo proj-photo-wide" />
-          <img src="proj1_scan.png" alt="Photogrammetry scan of timber segment" class="proj-photo" />
+          <img src="proj1_field.png" alt="Field photo of timber log" class="proj-photo" />
           <img src="proj1_connection.png" alt="3D connection detail" class="proj-photo" />
           <img src="proj1_fem.png" alt="FEM stress analysis" class="proj-photo" />
           <img src="proj1_model.png" alt="Lumped mass structural model" class="proj-photo" />
+          <img src="proj1_scan.png" alt="Photogrammetry scan pipeline" class="proj-photo proj-photo-wide" />
         </div>
         <p style="font-size:0.78rem;color:var(--muted);margin-top:0.6rem;font-style:italic;">
-          From left: field specimen · photogrammetry scan · connection detail · FEM analysis · structural model
+          From top-left: field specimen · connection detail · FEM analysis · structural model · photogrammetry scan pipeline (bottom)
         </p>
       </div>
     </div>
